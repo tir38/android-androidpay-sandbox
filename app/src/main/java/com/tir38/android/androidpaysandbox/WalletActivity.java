@@ -104,15 +104,12 @@ public class WalletActivity extends SingleFragmentActivity {
                 .setShippingAddressRequired(false)
                 .setMerchantName("merchant name")
                 .setPhoneNumberRequired(false)
-////                .setPaymentMethodTokenizationParameters(tokenizationParameters)
+                .setPaymentMethodTokenizationParameters(tokenizationParameters)
                 .setAllowDebitCard(true)
                 .setAllowPrepaidCard(false)
                 .setMerchantTransactionId("1234")
-
-                LEFT OFF HERE: TALK ABOUT WHY THIS IS A PROBLEM!!!
-
-//                .addAllowedCardNetwork(123) // INTERESTING: if you pass in wrong value here, onActivityResult will receive error code = 8
-//                .addAllowedCountrySpecificationForShipping(new CountrySpecification(COUNTRY_CODE))
+                .addAllowedCardNetwork(123) // INTERESTING: if you pass in wrong value here, onActivityResult will receive error code = 8
+                .addAllowedCountrySpecificationForShipping(new CountrySpecification(COUNTRY_CODE))
 
                 // Sets an optional shopping cart to use for this purchase.
                 // Supplying as much information about your transaction in
@@ -121,11 +118,11 @@ public class WalletActivity extends SingleFragmentActivity {
                 // this cart, make sure to use a description that informs
                 // the user that the line items are estimates (such as
                 // "Estimated Shipping").
-//                .setCart(Cart.newBuilder()
-//                        .setCurrencyCode(CURRENCY_CODE)
-//                        // TODO .setLineItems(...)
-//                        .setTotalPrice("10.00") // format follows the regex: [0-9]+(\.[0-9][0-9])?.
-//                        .build())
+                .setCart(Cart.newBuilder()
+                        .setCurrencyCode(CURRENCY_CODE)
+                        // TODO .setLineItems(...)
+                        .setTotalPrice("10.00") // format follows the regex: [0-9]+(\.[0-9][0-9])?.
+                        .build())
 
                 .build();
     }
